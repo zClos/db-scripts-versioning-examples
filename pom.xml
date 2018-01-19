@@ -8,5 +8,38 @@
     <artifactId>sfp-db-scripts-versioning-examples</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <!--Versions-->
+        <flyway.version>5.0.3</flyway.version>
 
+        <!--Database connection properties-->
+        <db.driver>org.h2.Driver</db.driver>
+        <db.url>jdbc:h2:tcp://localhost/~/test/flyway</db.url>
+        <db.user>root</db.user>
+        <db.password>root</db.password>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.195</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>${flyway.version}</version>
+                <configuration>
+                    <driver>${db.driver}</driver>
+                    <url>${db.url}</url>
+                    <user>${db.user}</user>
+                    <password>${db.password}</password>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
