@@ -27,6 +27,7 @@ public class FlywayConf {
         flyway.setBaselineOnMigrate(true);
         flyway.setLocations(environment.getProperty("flyway.directory"));
         flyway.setSchemas(environment.getProperty("flyway.schema"));
+        flyway.setTable(environment.getProperty("flyway.table"));
         return flyway;
     }
 }
